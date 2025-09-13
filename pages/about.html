@@ -141,7 +141,6 @@ body {
   color: var(--tab-active-text);
 }
 
-/* REMOVE: No icon/emoji styling needed as icons are removed from HTML */
 
 /* Overlap prevention & accessibility */
 .tabs-wrap,
@@ -181,22 +180,25 @@ body {
 .hobbies-section {
   background: url("../images/Untitled\ design.png") no-repeat center center/cover;
   padding: 40px 20px;
+  min-height: 600px; /* adjust as needed */
 }
+
 
 /* Title */
 .hobbies-title {
   font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #e7f5fa;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #464646;
   text-align: left;
   display: inline-block;
-  background: rgb(19, 18, 18);
-  padding: 8px 25px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 20px 25px;
   position: relative;
-    margin-bottom: 45px; /* push next content down */
-
+  margin-top: 40px;  /* pushes it down */
+  margin-bottom: 45px;
 }
+
 
 .hobbies-title::after {
   content: "";
@@ -204,8 +206,8 @@ body {
   left: 0px;
   right: 0px;
   bottom: -1px; /* gap below */
-  height: 10px; /* thickness of purple strip */
-  background: #e5eaeb; /* purple shade */
+  height: 15px; /* thickness of purple strip */
+  background: #22d3ee; /* purple shade */
 }
 
 
@@ -215,12 +217,13 @@ body {
   display: flex;
   align-items: center;
   max-width: 700px;          /* not too wide */
-  margin: auto;
+  margin: 60px auto 0 auto;  /* move down 60px from top */
   background: rgba(255, 255, 255, 0.9);
-  border-radius: 16px;
+  border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
+
 
 .hobbies-image {
   flex: 0 0 40%;
@@ -280,71 +283,151 @@ body {
 }
 
 /* Responsive */
+
 @media (max-width: 768px) {
   .hobbies-block {
     flex-direction: column;
+    max-width: 95%;
+    margin: 30px auto 0 auto;
     text-align: center;
   }
-  .hobbies-image {
-    width: 100%;
-    height: auto;
+
+ .hobbies-image {
+  width: 100%;
+  height: 70px;   /* reduced from 100px */
+  overflow: hidden;
+}
+
+  .hobbies-image img {
+  width: 100%;
+  height: 170px;   /* fixed smaller image height */
+  object-fit: cover;
+}
+
+
+  .hobbies-content {
+    padding: 20px;
+  }
+
+  .hobbies-title {
+    font-size: 1.2rem;
+    padding: 15px 20px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .hobbies-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .hobbies-content p {
+    font-size: 0.95rem;
   }
 }
+
 
 .travel-section {
   position: relative;
   margin-top: 60px;
+  margin-bottom: 60px; /* ✅ adds space outside the section */
   padding: 60px 20px;
+  padding-bottom: 80px; /* ✅ adds extra space inside the section */
   background-size: cover;
   background-position: center 30%;
   background-repeat: no-repeat;
   color: white;
   transition: background-image 1s ease-in-out; /* smooth fade */
+
+  
 }
+
 
 .travel-heading {
   position: absolute;
-  top: 20px;
+  top: 50px;
   left: 20px;
   font-size: 32px;
   font-weight: bold;
   text-transform: uppercase;
   background: rgba(0,0,0,0.5);
   padding: 8px 15px;
-  border-radius: 8px;
+  border-radius: 2px;
 }
 
 .travel-carousel {
   display: flex;
-  gap: 20px;
+  gap: 50px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   padding: 60px 0 20px;
+  margin-top: 50px; /* pushes the whole carousel lower */
+
 }
 
 .travel-card {
-  flex: 0 0 calc(25% - 20px);
+  flex: 0 0 250px; /* fixed width */
+  height: 230px;    /* fixed height */
   scroll-snap-align: start;
-  border-radius: 12px;
+  border-radius: 2px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   background: white;
+  padding: 15px;  /* space around image for "frame" effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .travel-card img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  display: block;
+  width: 100%;       /* fill available space inside padding */
+  height: 100%;
+  object-fit: cover; /* maintain aspect ratio and fill area */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* optional photo shadow */
 }
+
 
 /* Mobile view */
 @media (max-width: 768px) {
+  .travel-section {
+    padding: 40px 15px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+        min-height: 700px; /* ✅ taller background area */
+
+  }
+
+  .travel-heading {
+    top: 60px;
+    left: 10px;
+    font-size: 22px;
+    padding: 6px 10px;
+  }
+
+ 
+
   .travel-card {
-    flex: 0 0 90%;
+    flex: 0 0 90%; /* cards take more width on small screens */
+    padding: 10px;
+  }
+
+  .travel-card img {
+    height: 100%;
+    object-fit: cover;
   }
 }
 
+@media (max-width: 768px) {
+  .travel-carousel {
+    overflow: hidden;   /* hide overflow */
+    gap: 0;             /* no gaps for smooth sliding */
+  }
+
+  .travel-card {
+    flex: 0 0 100%;     /* show one card at a time */
+    height: 300px;
+  }
+}
 
   </style>
 </head>
@@ -560,7 +643,8 @@ body {
      <div class="tab-pane fade" id="pane-hobbies" role="tabpanel" aria-labelledby="tab-hobbies">
   <section class="py-4 hobbies-section" data-aos="zoom-in">
     <div class="container">
-      <h2 class="hobbies-title">Hobbies</h2>
+      <h2 class="hobbies-title">Reading Books
+</h2>
 
       <div class="hobbies-block">
         <!-- Left Image -->
@@ -579,33 +663,57 @@ body {
       </div>
     </div>
   </section>
-</div>
 
 
 <section class="travel-section">
   <h2 class="travel-heading">Travel</h2>
 
   <div class="travel-carousel">
-    <div class="travel-card"><img src="../images/WhatsApp Image 2025-09-12 at 11.33.59 PM.jpeg" alt="Travel 1"></div>
-    <div class="travel-card"><img src="../images/WhatsApp Image 2025-09-12 at 11.34.00 PM (1).jpeg" alt="Travel 2"></div>
+    <div class="travel-card"><img src="../images/beach.jpeg" alt="Travel 1"></div>
+    <div class="travel-card"><img src="../images/trecking.jpeg" alt="Travel 2"></div>
     <div class="travel-card"><img src="../images/WhatsApp Image 2025-09-12 at 11.34.00 PM.jpeg" alt="Travel 3"></div>
     <div class="travel-card"><img src="../images/WhatsApp Image 2025-09-12 at 11.34.01 PM (1).jpeg" alt="Travel 4"></div>
-    <div class="travel-card"><img src="../images/WhatsApp Image 2025-09-12 at 11.34.01 PM.jpeg" alt="Travel 5"></div>
+    <!-- <div class="travel-card"><img src="../images/WhatsApp Image 2025-09-12 at 11.34.01 PM.jpeg" alt="Travel 5"></div> -->
   </div>
 </section>
 
 
 
+</div>
 
     </div>
   </main>
 
   <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const carousel = document.querySelector(".travel-carousel");
+    const cards = document.querySelectorAll(".travel-card");
+    let index = 0;
+    let interval;
+
+    function startCarousel() {
+      interval = setInterval(() => {
+        index = (index + 1) % cards.length;
+        carousel.scrollTo({
+          left: index * carousel.offsetWidth,
+          behavior: "smooth"
+        });
+      }, 3000); // every 3 sec
+    }
+
+    // ✅ Only run auto-slide on mobile
+    if (window.innerWidth <= 768) {
+      startCarousel();
+    }
+  });
+</script>
+
+  <script>
   const section = document.querySelector(".travel-section");
 
   const images = [
-    "../images/pexels-njeromin-12643374.jpg",
-    "../images/pexels-njeromin-14268991.jpg",
+    "../images/beach1.jpg",
+    "../images/tecking2.jpg",
     "../images/pexels-daniel-jurin-358265-1835718.jpg",
     "../images/pexels-njeromin-12643374.jpg",
     "../images/pexels-njeromin-14268991.jpg",
