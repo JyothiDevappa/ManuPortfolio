@@ -20,430 +20,354 @@
   <link rel="stylesheet" href="../css/style.css" />
 
   <style>
-   :root {
-  --accent: #06b6d4;
-  --tab-bg: #f0f2f5;
-  --tab-text: #374151;
-  --tab-active-text: #111827;
-  --tab-border: #d1d5db;
-}
+    :root {
+      --accent: #06b6d4;
+      --tab-bg: #f0f2f5;
+      --tab-text: #374151;
+      --tab-active-text: #111827;
+      --tab-border: #d1d5db;
+    }
 
-body {
-  background-color: #f9fafb;
-  color: #111827;
-  font-family: 'Poppins', sans-serif;
-  line-height: 1.7;
-  font-size: 1.05rem;
-}
+    body {
+      background-color: #f9fafb;
+      color: #111827;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
 
-/* Section titles */
-.section-title {
-  color: var(--accent);
-  font-weight: 700;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+    /* Section titles */
+    .section-title {
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-/* Custom card */
-.card-custom {
-  background: #fff;
-  border: none;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  transition: 0.3s ease;
-}
-.card-custom:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.15);
-}
+    /* Custom card */
+    .card-custom {
+      background: #fff;
+      border: none;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      transition: 0.3s ease;
+    }
 
-/* Custom button */
-.btn-custom {
-  background-color: var(--accent);
-  color: #fff;
-  font-weight: 600;
-  border-radius: 10px;
-  padding: 12px 20px;
-  font-size: 1.05rem;
-  transition: 0.3s;
-}
-.btn-custom:hover {
-  background-color: #1d4ed8;
-  color: #fff;
-}
+    .card-custom:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 26px rgba(37, 99, 235, 0.15);
+    }
 
-/* Quick info list */
-.info-list li {
-  margin-bottom: 10px;
-  font-size: 1rem;
-}
+    /* Custom button */
+    .btn-custom {
+      background-color: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-size: 1.05rem;
+      transition: 0.3s;
+    }
 
-/* Social icons */
-.social-icons a {
-  font-size: 1.6rem;
-  color: #22d3ee;
-  margin-right: 14px;
-  transition: 0.3s;
-}
-.social-icons a:hover {
-  color: var(--accent);
-}
+    .btn-custom:hover {
+      background-color: #1d4ed8;
+      color: #fff;
+    }
 
-/* --- Tabs --- */
-.tabs-wrap {
-  position: sticky;
-  top: 84px;      /* Adjust this value for how low you want tabs */
-  z-index: 1010;
-  background: #f9fafb;
-  margin-bottom: 0;
-}
+    /* Quick info list */
+    .info-list li {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
 
-/* Container for tabs with spacing */
-.tab-content {
-  margin-top: 24px;      /* Space below tabs */
-}
+    /* Social icons */
+    .social-icons a {
+      font-size: 1.6rem;
+      color: #22d3ee;
+      margin-right: 14px;
+      transition: 0.3s;
+    }
 
-/* Scrollable tab row */
-.nav-tabs-scroll {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-  border: none; /* Remove default border */
-}
+    .social-icons a:hover {
+      color: var(--accent);
+    }
 
-/* Individual tab styling */
-.nav-tabs-scroll .nav-link {
-  display: inline-flex;
-  color: var(--tab-text);
-  padding: 10px 16px;
-  margin-right: 8px;
-  font-weight: 600;
-  text-wrap: nowrap;
-  background: none;
-  border: none;
-  border-radius: 6px 6px 0 0;
-  box-shadow: none;
-  transition: background 0.25s, color 0.25s, border-color 0.25s;
-}
-.nav-tabs-scroll .nav-link.active {
-  background: #06b6d4;
-  border-color: var(--tab-border);
-  /* color: var(--tab-active-text); */
-  box-shadow: 0 -2px 0 0 var(--accent) inset;
-}
-.nav-link.active{
-  color: rgb(255, 255, 255) !important;
-}
-.nav-tabs-scroll .nav-link:hover {
-  color: var(--tab-active-text);
-}
+    /* --- Tabs --- */
+    .tabs-wrap {
+      position: sticky;
+      top: 84px;
+      /* Adjust this value for how low you want tabs */
+      z-index: 1010;
+      background: #f9fafb;
+      margin-bottom: 0;
+    }
 
+    /* Container for tabs with spacing */
+    .tab-content {
+      margin-top: 24px;
+      /* Space below tabs */
+    }
 
-/* Overlap prevention & accessibility */
-.tabs-wrap,
-.tab-content,
-.card-custom {
-  box-sizing: border-box;
-}
-.tabs-wrap {
-  position: sticky;
-  top: 70px;              /* keep it a little down (like you had) */
-  z-index: 1010;
-  background: #ffffff;    /* solid white background */
-  padding-top: 10px;      /* small breathing space */
-  padding-bottom: 5px;
-}
+    /* Scrollable tab row */
+    .nav-tabs-scroll {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      border: none;
+      /* Remove default border */
+    }
 
-@media (max-width: 768px) {
-  .nav-tabs-scroll {
-    flex-wrap: nowrap;         /* keep in one line */
-    overflow-x: auto;          /* enable horizontal scrolling */
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;   /* Firefox */
+    /* Individual tab styling */
+    .nav-tabs-scroll .nav-link {
+      display: inline-flex;
+      color: var(--tab-text);
+      padding: 10px 16px;
+      margin-right: 8px;
+      font-weight: 600;
+      text-wrap: nowrap;
+      background: none;
+      border: none;
+      border-radius: 6px 6px 0 0;
+      box-shadow: none;
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+    }
 
-    gap: 12px;                 /* reduce gap for small screens */
-    justify-content: flex-start;
-  }
+    .nav-tabs-scroll .nav-link.active {
+      background: #06b6d4;
+      border-color: var(--tab-border);
+      /* color: var(--tab-active-text); */
+      box-shadow: 0 -2px 0 0 var(--accent) inset;
+    }
 
-  .nav-tabs-scroll .nav-link {
-    font-size: 0.9rem;         /* smaller text size */
-    padding: 8px 12px;         /* compact padding */
-    white-space: nowrap;       /* prevent breaking */
-  }
-  
-}
+    .nav-link.active {
+      color: rgb(255, 255, 255) !important;
+    }
 
-/* Section background */
-.hobbies-section {
-  background: url("../images/Untitled\ design.png") no-repeat center center/cover;
-  padding: 40px 20px;
-  min-height: 600px; /* adjust as needed */
-}
+    .nav-tabs-scroll .nav-link:hover {
+      color: var(--tab-active-text);
+    }
 
 
-/* Title */
-.hobbies-title {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #464646;
-  text-align: left;
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.7);
-  padding: 20px 25px;
-  position: relative;
-  margin-top: 40px;  /* pushes it down */
-  margin-bottom: 45px;
-}
+    /* Overlap prevention & accessibility */
+    .tabs-wrap,
+    .tab-content,
+    .card-custom {
+      box-sizing: border-box;
+    }
+
+    .tabs-wrap {
+      position: sticky;
+      top: 70px;
+      /* keep it a little down (like you had) */
+      z-index: 1010;
+      background: #ffffff;
+      /* solid white background */
+      padding-top: 10px;
+      /* small breathing space */
+      padding-bottom: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-tabs-scroll {
+        flex-wrap: nowrap;
+        /* keep in one line */
+        overflow-x: auto;
+        /* enable horizontal scrolling */
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* Firefox */
+
+        gap: 12px;
+        /* reduce gap for small screens */
+        justify-content: flex-start;
+      }
+
+      .nav-tabs-scroll .nav-link {
+        font-size: 0.9rem;
+        /* smaller text size */
+        padding: 8px 12px;
+        /* compact padding */
+        white-space: nowrap;
+        /* prevent breaking */
+      }
+
+    }
+
+    /* Section background */
+    .hobbies-section {
+      background: url("../images/book.jpg") no-repeat center center/cover;
+      padding: 40px 20px;
+      min-height: 600px;
+      /* adjust as needed */
+    }
 
 
-.hobbies-title::after {
-  content: "";
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  bottom: -1px; /* gap below */
-  height: 15px; /* thickness of purple strip */
-  background: #22d3ee; /* purple shade */
-}
+    /* Title */
+    .hobbies-title {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #464646;
+      text-align: left;
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 20px 25px;
+      position: relative;
+      margin-top: 40px;
+      /* pushes it down */
+      margin-bottom: 45px;
+    }
+
+
+    .hobbies-title::after {
+      content: "";
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      bottom: -1px;
+      /* gap below */
+      height: 15px;
+      /* thickness of purple strip */
+      background: #22d3ee;
+      /* purple shade */
+    }
 
 
 
-/* Block layout */
-.hobbies-block {
-  display: flex;
-  align-items: center;
-  max-width: 700px;          /* not too wide */
-  margin: 60px auto 0 auto;  /* move down 60px from top */
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-}
+    /* Block layout */
+    .hobbies-block {
+      display: flex;
+      align-items: center;
+      max-width: 700px;
+      /* not too wide */
+      margin: 60px auto 0 auto;
+      /* move down 60px from top */
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
 
 
-.hobbies-image {
-  flex: 0 0 40%;
-  height: auto;
-  overflow: hidden;
-  position: relative;
-  background: rgb(0, 0, 0); /* initial white background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    .hobbies-image {
+      flex: 0 0 40%;
+      height: auto;
+      overflow: hidden;
+      position: relative;
+      background: rgb(0, 0, 0);
+      /* initial white background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.hobbies-image img {
-  width: 80%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transform: scale(1.3);   /* start zoomed & hidden */
-  animation: welcomeReveal 5s ease forwards;
-}
+    .hobbies-image img {
+      width: 80%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(1.3);
+      /* start zoomed & hidden */
+      animation: welcomeReveal 5s ease forwards;
+    }
 
-@keyframes welcomeReveal {
-  0% {
-    opacity: 0;
-    transform: scale(1.3); /* zoomed and invisible */
-  }
-  40% {
-    opacity: 0.5;
-    transform: scale(1.15); /* image begins to appear */
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1); /* normal, fully visible */
-  }
-}
+    @keyframes welcomeReveal {
+      0% {
+        opacity: 0;
+        transform: scale(1.3);
+        /* zoomed and invisible */
+      }
 
+      40% {
+        opacity: 0.5;
+        transform: scale(1.15);
+        /* image begins to appear */
+      }
 
-.hobbies-image img:hover {
-  transform: scale(1.1);    /* zoom animation */
-}
-
-/* Right side text */
-.hobbies-content {
-  padding: 30px;
-  flex: 1;
-  text-align: left;
-}
-.hobbies-content h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #111;
-}
-.hobbies-content p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #374151;
-}
-
-/* Responsive */
-
-@media (max-width: 768px) {
-  .hobbies-block {
-    flex-direction: column;
-    max-width: 95%;
-    margin: 30px auto 0 auto;
-    text-align: center;
-  }
-
- .hobbies-image {
-  width: 100%;
-  height: 70px;   /* reduced from 100px */
-  overflow: hidden;
-}
-
-  .hobbies-image img {
-  width: 100%;
-  height: 170px;   /* fixed smaller image height */
-  object-fit: cover;
-}
+      100% {
+        opacity: 1;
+        transform: scale(1);
+        /* normal, fully visible */
+      }
+    }
 
 
-  .hobbies-content {
-    padding: 20px;
-  }
+    .hobbies-image img:hover {
+      transform: scale(1.1);
+    }
 
-  .hobbies-title {
-    font-size: 1.2rem;
-    padding: 15px 20px;
-    margin-top: 25px;
-    margin-bottom: 30px;
-    text-align: center;
-  }
+    .hobbies-content {
+      padding: 30px;
+      flex: 1;
+      text-align: left;
+    }
 
-  .hobbies-content h3 {
-    font-size: 1.2rem;
-  }
+    .hobbies-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #111;
+    }
 
-  .hobbies-content p {
-    font-size: 0.95rem;
-  }
-}
+    .hobbies-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #374151;
+    }
 
+    /* Responsive */
 
-.travel-section {
-  position: relative;
-  margin-top: 60px;
-  margin-bottom: 60px; /* ✅ adds space outside the section */
-  padding: 60px 20px;
-  padding-bottom: 80px; /* ✅ adds extra space inside the section */
-  background-size: cover;
-  background-position: center 30%;
-  background-repeat: no-repeat;
-  color: white;
-  transition: background-image 1s ease-in-out; /* smooth fade */
+    @media (max-width: 768px) {
+      .hobbies-block {
+        flex-direction: column;
+        max-width: 95%;
+        margin: 30px auto 0 auto;
+        text-align: center;
+      }
 
-  
-}
+      .hobbies-image {
+        width: 100%;
+        height: 70px;
+        /* reduced from 100px */
+        overflow: hidden;
+      }
 
-
-.travel-heading {
-  position: absolute;
-  text-decoration: underline;
-  top: 50px;
-  left: 20px;
-  font-size: 72px;
-  font-weight: bold;
-  text-transform: uppercase;
-  /* background: rgba(0,0,0,0.5); */
-  padding: 8px 15px;
-  border-radius: 2px;
-}
-
-.travel-carousel {
-  display: flex;
-  gap: 50px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 60px 0 20px;
-  margin-top: 40px; /* pushes the whole carousel lower */
-
-}
-
-.travel-card {
-  flex: 0 0 250px; /* fixed width */
-  height: 230px;    /* fixed height */
-  scroll-snap-align: start;
-  border-radius: 2px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  background: white;
-  padding: 15px;  /* space around image for "frame" effect */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.travel-card img {
-  width: 100%;       /* fill available space inside padding */
-  height: 100%;
-  object-fit: cover; /* maintain aspect ratio and fill area */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* optional photo shadow */
-}
+      .hobbies-image img {
+        width: 100%;
+        height: 170px;
+        /* fixed smaller image height */
+        object-fit: cover;
+      }
 
 
-/* Mobile view */
-@media (max-width: 768px) {
-  .travel-section {
-    padding: 40px 15px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-        min-height: 700px; /* ✅ taller background area */
+      .hobbies-content {
+        padding: 20px;
+      }
 
-  }
+      .hobbies-title {
+        font-size: 1.2rem;
+        padding: 15px 20px;
+        margin-top: 25px;
+        margin-bottom: 30px;
+        text-align: center;
+      }
 
-  .travel-heading {
-    top: 60px;
-    left: 10px;
-    font-size: 20px;
-    padding: 6px 10px;
-  }
+      .hobbies-content h3 {
+        font-size: 1.2rem;
+      }
 
- 
-
- 
-  .travel-card img {
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-@media (max-width: 768px) {
-  .travel-carousel {
-    overflow: hidden;   /* hide overflow */
-    gap: 0;             /* no gaps for smooth sliding */
-  }
-
-  .travel-card {
-    flex: 0 0 100%;     /* show one card at a time */
-    height: 300px;
-  }
-}
-
-.travel-section p {
-  max-width: 600px;
-  margin: 80px auto 0;   /* centers under heading */
-  font-size: 18px;
-  line-height: 1.6;
-  text-align: center;    /* keep it neat */
-  color: #f1f1f1;        /* light text for dark bg */
-  background: rgba(0,0,0,0.4); /* subtle background */
-  padding: 12px 18px;
-  border-radius: 6px;
-}
-
+      .hobbies-content p {
+        font-size: 0.95rem;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-<!-- Fixed Header/Navbar -->
+  <!-- Fixed Header/Navbar -->
   <nav class="navbar navbar-expand-lg custom-navbar">
     <div class="container">
       <a class="navbar-brand" href="../index.html">
@@ -475,33 +399,33 @@ body {
     <!-- Tabs (scrollable on mobile, grey mixed light colours) -->
     <div class="tabs-wrap">
       <div class="container">
-       
+
         <ul class="nav nav-tabs nav-tabs-scroll border-0" id="aboutTabs" role="tablist">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="tab-about" data-bs-toggle="tab" data-bs-target="#pane-about"
-      type="button" role="tab" aria-controls="pane-about" aria-selected="true">
-      About
-    </button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="tab-exp" data-bs-toggle="tab" data-bs-target="#pane-exp" type="button"
-      role="tab" aria-controls="pane-exp" aria-selected="false">
-      Experience
-    </button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="tab-skills" data-bs-toggle="tab" data-bs-target="#pane-skills" type="button"
-      role="tab" aria-controls="pane-skills" aria-selected="false">
-      Skills
-    </button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="tab-hobbies" data-bs-toggle="tab" data-bs-target="#pane-hobbies" type="button"
-      role="tab" aria-controls="pane-hobbies" aria-selected="false">
-      Hobbies
-    </button>
-  </li>
-</ul>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="tab-about" data-bs-toggle="tab" data-bs-target="#pane-about"
+              type="button" role="tab" aria-controls="pane-about" aria-selected="true">
+              About
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-exp" data-bs-toggle="tab" data-bs-target="#pane-exp" type="button"
+              role="tab" aria-controls="pane-exp" aria-selected="false">
+              Experience
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-skills" data-bs-toggle="tab" data-bs-target="#pane-skills" type="button"
+              role="tab" aria-controls="pane-skills" aria-selected="false">
+              Skills
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-hobbies" data-bs-toggle="tab" data-bs-target="#pane-hobbies" type="button"
+              role="tab" aria-controls="pane-hobbies" aria-selected="false">
+              Hobbies
+            </button>
+          </li>
+        </ul>
 
       </div>
     </div>
@@ -649,116 +573,184 @@ body {
         </section>
       </div>
 
-     <div class="tab-pane fade" id="pane-hobbies" role="tabpanel" aria-labelledby="tab-hobbies">
-  <section class="py-4 hobbies-section" data-aos="zoom-in">
-    <div class="container">
-      <h2 class="hobbies-title">Reading Books
-</h2>
+      <div class="tab-pane fade" id="pane-hobbies" role="tabpanel" aria-labelledby="tab-hobbies">
+        <section class="py-4 hobbies-section" data-aos="zoom-in">
+          <div class="container">
+            <h2 class="hobbies-title">Reading Books
+            </h2>
 
-      <div class="hobbies-block">
-        <!-- Left Image -->
-        <div class="hobbies-image">
-          <img src="../images/person.jpeg" alt="Person">
-        </div>
+            <div class="hobbies-block">
+              <!-- Left Image -->
+              <div class="hobbies-image">
+                <img src="../images/person.jpeg" alt="Person">
+              </div>
 
-        <!-- Right Text -->
-        <div class="hobbies-content">
-          <h3>Reading Books</h3>
-          <p>
-            Reading blogs & books, listening to music, 
-            participating in NGO activities and book clubs.
+              <!-- Right Text -->
+              <div class="hobbies-content">
+                <!-- <h3>Reading Books</h3> -->
+                <p>
+                  Reading blogs & books, listening to music,
+                  participating in NGO activities and book clubs.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="travel-section">
+          <h2 class="travel-heading">Travel</h2>
+          <p class="travel-desc">
+            I enjoy traveling as it allows me to explore new places, experience different cultures, and create fresh
+            memories.
           </p>
-        </div>
-      </div>
-    </div>
-  </section>
+
+          <div class="travel-carousel">
+            <div class="travel-card"><img src="../images/a1.jpeg" alt="Travel 1"></div>
+          </div>
+        </section>
+
+        <script>
+          const section = document.querySelector(".travel-section");
+          const cardImg = document.querySelector(".travel-card img");
+
+          // background + card image pairs
+          const pairs = [
+            { bg: "../images/a.webp", card: "../images/a1.png" },
+            { bg: "../images/b.webp", card: "../images/b1.png" },
+            { bg: "../images/c.webp", card: "../images/c1.png" },
+            { bg: "../images/d.webp", card: "../images/d1.png" },
+          ];
+
+          let i = 0;
+          setInterval(() => {
+            section.style.backgroundImage = `url(${pairs[i].bg})`;
+            cardImg.src = pairs[i].card;
+            i = (i + 1) % pairs.length;
+          }, 3000); // 3 seconds
+        </script>
+
+        <style>
+       .travel-section {
+  padding-bottom: 60px;
+  position: relative;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: background-image 1s ease-in-out;
+  transform: translateY(40px); /* pushes content slightly down */
+}
+
+          .travel-heading {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 50px;
+            /* big size */
+            font-weight: bold;
+            text-decoration: underline;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+          }
+
+          .travel-desc {
+            max-width: 600px;
+            margin-top: 90px;
+            /* leaves space below heading */
+            font-size: 15px;
+            color: white;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+          }
+
+          .travel-card {
+            margin-top: 0px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 16px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 600px;
+            /* wider card */
+            height: 380px;
+            /* fixed height */
+          }
+
+          .travel-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* keeps images uniform */
+          }
+
+          /* Mobile (max-width: 600px) */
+          @media (max-width: 768px) {
+            .travel-heading {
+              position: static;
+              /* remove absolute, let it flow */
+              font-size: 28px;
+              margin-bottom: 15px;
+              text-align: left !important;
+            }
+
+            .travel-desc {
+              max-width: 90%;
+              font-size: 13px;
+              margin-top: 10px;
+              padding: 0 10px;
+              text-align: center;
+            }
+
+            .travel-card {
+              width: 90%;
+              height: 320px;
+              /* 👈 you can adjust */
+              padding: 10px;
+              display: flex;
+              justify-content: center;
+              /* centers horizontally */
+              align-items: center;
+              /* centers vertically */
+            }
+
+            .travel-card img {
+              width: 300px;
+              /* 👈 you can edit */
+              height: 300px;
+              /* 👈 you can edit */
+              object-fit: cover;
+              border-radius: 12px;
+            }
+          }
+        </style>
 
 
-<section class="travel-section">
-  <h2 class="travel-heading">Travel</h2>
+        <!-- Tabs Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+        <script>
+          AOS.init({ duration: 900, once: true });
 
-<p>
-  I enjoy traveling as it allows me to explore new places, experience different cultures, and create fresh memories.
-</p>
-
-
-  <div class="travel-carousel">
-    <div class="travel-card"><img src="../images/beach.jpeg" alt="Travel 1"></div>
-    <div class="travel-card"><img src="../images/tecking.jpeg" alt="Travel 2"></div>
-    <div class="travel-card"><img src="../images/forest.jpeg" alt="Travel 3"></div>
-    <div class="travel-card"><img src="../images/ocean.jpeg" alt="Travel 4"></div>
-    <!-- <div class="travel-card"><img src="../images/WhatsApp Image 2025-09-12 at 11.34.01 PM.jpeg" alt="Travel 5"></div> -->
-  </div>
-</section>
-
-
-
-</div>
-
-    </div>
-  </main>
-
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const carousel = document.querySelector(".travel-carousel");
-    const cards = document.querySelectorAll(".travel-card");
-    let index = 0;
-    let interval;
-
-    function startCarousel() {
-      interval = setInterval(() => {
-        index = (index + 1) % cards.length;
-        carousel.scrollTo({
-          left: index * carousel.offsetWidth,
-          behavior: "smooth"
-        });
-      }, 3000); // every 3 sec
-    }
-
-    // ✅ Only run auto-slide on mobile
-    if (window.innerWidth <= 768) {
-      startCarousel();
-    }
-  });
-</script>
-
-  <script>
-  const section = document.querySelector(".travel-section");
-
-  const images = [
-    "../images/beach1.jpg",
-    "../images/tecking1.jpg",
-    "../images/f.jpg",
-    "../images/ocean1.jpg",
-    // "../images/pexels-njeromin-14268991.jpg",
-  ];
-
-  let i = 0;
-  setInterval(() => {
-    section.style.backgroundImage = `url(${images[i]})`;
-    i = (i + 1) % images.length;
-  }, 3000); // 3 seconds
-</script>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 900, once: true });
-
-    // Optional: support deep-linking to tabs via hash
-    const hash = window.location.hash;
-    if (hash) {
-      const trigger = document.querySelector(`[data-bs-target="${hash}"]`);
-      if (trigger) new bootstrap.Tab(trigger).show();
-    }
-    document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(btn => {
-      btn.addEventListener('shown.bs.tab', e => {
-        const target = e.target.getAttribute('data-bs-target');
-        history.replaceState(null, '', target);
-      });
-    });
-  </script>
+          // Optional: support deep-linking to tabs via hash
+          const hash = window.location.hash;
+          if (hash) {
+            const trigger = document.querySelector(`[data-bs-target="${hash}"]`);
+            if (trigger) new bootstrap.Tab(trigger).show();
+          }
+          document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(btn => {
+            btn.addEventListener('shown.bs.tab', e => {
+              const target = e.target.getAttribute('data-bs-target');
+              history.replaceState(null, '', target);
+            });
+          });
+        </script>
 </body>
 
 </html>

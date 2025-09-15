@@ -1,9 +1,3 @@
-.row {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-/* Root & Base */
 :root {
   --beige: #f9f4ef;
   --text: #080808;
@@ -13,58 +7,80 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: rgb(243, 238, 238);
-  color: #000;
+  color: #fffefe;
   margin: 0;
   padding: 0;
+  background: #000; /* fallback */
 }
+
 
 /* NAVBAR */
 .custom-navbar {
-  background-color: #d4d4d4;
-  box-shadow: 0 6px 12px rgba(97, 170, 212, 0.08);
-  position: sticky;
-  top: 0;
+  background-color: transparent !important;
+  position: relative;   /* remove sticky if you don’t want it glued to top */
+  top: 20px;            /* pushes navbar a little down */
   z-index: 1000;
-  color: #363636;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center; /* center the whole navbar */
 }
+
+/* Center nav items */
+.navbar-nav {
+  margin: 0 auto;  /* centers nav list */
+  text-align: center;
+}
+
+/* NAV LINKS */
+.nav-link {
+  font-size: 0.8rem;        /* smaller size */
+  font-weight: 500;
+  color: #969393 !important; 
+  margin: 0 12px;
+  text-transform: uppercase;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* HERO WRAPPER (Background shared by navbar + hero) */
+.hero-section {
+  background-image: url(../images/Black\ and\ White\ Futuristic\ Technology\ Company\ Presentation.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+/* NAVBAR */
 
 .navbar-brand {
   font-size: 1.7rem;
   font-weight: 600;
-  color: slategray;
+  color: #969393 !important;   /* white by default */
   text-decoration: none;
 }
 
 .navbar-brand:hover {
-  color: steelblue !important;
+  color: var(--accent) !important;
 }
 
-.nav-link {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #000;
-  margin: 0 10px;
-  text-transform: uppercase;
-  position: relative;
-  transition: 0s;
-}
 
 .nav-link:hover {
-  color: slategrey !important;
+  color: var(--accent) !important;
 }
 
 .nav-link.active {
-  color:slategrey !important;
+  color: turquoise !important;
 }
-
 
 .nav-link::after {
   content: '';
   position: absolute;
   width: 0;
   height: 2px;
-  background-color: var(--accent);
+  background-color: turquoise;
   bottom: 0;
   left: 0;
   transition: 0.3s;
@@ -73,17 +89,17 @@ body {
 .nav-link:hover::after,
 .nav-link.active::after {
   width: 100%;
+    color: turquoise !important;
+
 }
 
-
+/* HERO CONTENT */
 .hero-coder {
-  position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 100px 20px 60px;
-  color: #1a1a1a;
-  overflow: hidden;
+  padding: 120px 20px 60px;
+  color: #fff;
 }
 
 .hero-coder.bg {
@@ -104,9 +120,10 @@ z-index: 0;
 }
 
 .type-effect {
+  color: whitesmoke;
   font-size: 3.5rem;
   font-weight: bold;
-  font-family: 'Fira Code', monospace;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid var(--accent);
@@ -137,17 +154,20 @@ z-index: 0;
 }
 
 .subtitle {
-  font-size: 1.4rem;
-  color: #464646;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 1.1rem;
+  color: #969393;
   max-width: 700px;
   margin-bottom: 20px;
   text-align: justify;
 }
-
+h2{
+  color: turquoise;
+}
 .social-icons a {
   font-size: 2rem;
   margin-right: 15px;
-  color: rgb(154, 145, 187);
+  color: teal;
   transition: 0.3s;
 }
 
@@ -158,9 +178,8 @@ z-index: 0;
 .btn-about {
   display: inline-block;
   padding: 10px 24px;
-  background-color: black;   /* 🔥 Fill box with black */
-  border: 2px solid black;   /* Keep border same as background */
-  color: white;              /* 🔥 White text */
+  border: 2px solid rgb(20, 98, 109);   /* Keep border same as background */
+  color: aqua;              /* 🔥 White text */
   border-radius: 5px;
   font-weight: 600;
   text-decoration: none;
@@ -184,7 +203,8 @@ z-index: 0;
   }
 
   .subtitle {
-    font-size: 18px;
+    font-size: 15px;
+    font-family: cursive;
   }
 
   .social-icons a {
@@ -192,44 +212,8 @@ z-index: 0;
   }
 }
 
-@media (max-width: 480px) {
-  .hero-coder h1 {
-    font-size: 24px;
-    line-height: 1.1;
-  }
 
-  .subtitle {
-    font-size: 18px;
-  }
 
-  .social-icons a {
-    font-size: 26px;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-coder .bg.adjust-right {
-    background-position: 42% center;
-    /* push more right */
-    top: 40px;
-    /* pushes the coffee image downward */
-
-    background-size: contain;
-    /* keep whole image visible */
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-}
-
-@media (max-width: 400px) {
-  .hero-coder .bg.adjust-right {
-    top: 60px;
-    /* push a bit more down for extra-small screens */
-    background-position: 38% center;
-    /* center it better */
-    background-size: cover;
-  }
-}
 
 
 /* ABOUT SECTION */
@@ -259,15 +243,16 @@ z-index: 0;
 /* Left side (ABOUT) */
 .about-left {
   flex: 1;
-  background: linear-gradient(120deg, #000000, #1a1a1a);
-  color: #fff;
+  background: url(../images/aaa.png);
+  color: #555555;
   display: flex;
   flex-direction: column;
   align-items: center;          /* center children horizontally */
   justify-content: flex-start;  /* align children to top */
   padding: 50px;
   transition: background-position 0.6s ease;
-  background-size: 200% 200%;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .about-left:hover {
   background-position: right center;
@@ -276,8 +261,8 @@ z-index: 0;
 /* Right side (ME) */
 .about-right {
   flex: 1;
-  background: linear-gradient(120deg, rgb(48, 64, 94), rgb(22, 120, 112));
-  color: #fff;
+  /* background: url(../images/bbbbb.png); */
+  color: #302e2e;
   display: flex;
   flex-direction: column;
   align-items: center;          /* center children horizontally */
@@ -317,8 +302,8 @@ z-index: 0;
 /* Buttons */
 .btn-resume {
   padding: 10px 20px;
-  border: 2px solid #fff;
-  color: #fff;
+  border: 2px solid #414141;
+  color: #494444;
   font-weight: bold;
   text-decoration: none;
   border-radius: 6px;
