@@ -1,0 +1,224 @@
+:root {
+  --accent: #06b6d4;
+  --tab-bg: #f0f2f5;
+  --tab-text: #374151;
+  --tab-active-text: #111827;
+  --tab-border: #d1d5db;
+}
+
+body {
+  background-image: url(../images/8275340.jpg);
+  color: #e9e2e2;
+
+}
+
+
+/* Section titles */
+.section-title {
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.info-list li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.social-icons a {
+  font-size: 1.6rem;
+  color: #22d3ee;
+  margin-right: 14px;
+  transition: 0.3s;
+}
+.social-icons a:hover {
+  color: var(--accent);
+}
+
+/* Custom button */
+.btn-custom {
+  background-color: transparent !important;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 1.05rem;
+  transition: 0.3s;
+}
+.btn-custom:hover {
+  background-color: #1d4ed8;
+  color: #fff;
+}
+
+/* New About Box */
+.about-box {
+  background: url('../images/a12.jpg') center/cover no-repeat;
+  border-radius: 20px;
+  padding: 40px;
+  color: #e5e7eb;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+  transition: 0.3s ease;
+  max-width: 1200px;
+  margin: auto;
+}
+.about-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.85);
+}
+
+/* Tabs */
+.tabs-wrap {
+  position: sticky;
+  z-index: 1010;
+  background: transparent !important;
+  margin-bottom: 10px;
+  margin-top: 50px;
+}
+.nav-tabs-scroll {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  border: none;
+}
+.nav-tabs-scroll .nav-link {
+  display: inline-flex;
+  color: var(--tab-text);
+  padding: 10px 16px;
+  margin-right: 8px;
+  font-weight: 600;
+  background: none;
+  border: none;
+  border-radius: 6px 6px 0 0;
+  box-shadow: none;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.nav-tabs-scroll .nav-link.active {
+  background: #06b6d4;
+  border-color: var(--tab-border);
+  box-shadow: 0 -2px 0 0 var(--accent) inset;
+}
+.nav-link.active {
+  color: #fff !important;
+}
+.nav-tabs-scroll .nav-link:hover {
+  color: var(--tab-active-text);
+}
+
+@media (max-width: 768px) {
+  .nav-tabs-scroll {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 12px;
+    justify-content: flex-start;
+  }
+  .nav-tabs-scroll .nav-link {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    white-space: nowrap;
+  }
+}
+
+/* Skills section (kept as-is) */
+.skills-wrapper {
+  background: rgba(17, 24, 39, 0.3);
+  border-radius: 30px;
+  padding: 40px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 30px;
+}
+.skill-category {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.skill-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+.skill-category h5 {
+  font-weight: 600;
+  color: #06b6d4;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+.skill-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, #06b6d4, #2563eb);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 4px 6px 0 0;
+  transition: all 0.3s ease;
+}
+.skill-tag:hover {
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  transform: translateY(-2px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Experience cards */
+.exp-card {
+  border-radius: 18px;
+  padding: 25px;
+  color: #e5e7eb;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.exp-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.9);
+}
+
+.exp-card h5 {
+  color: #06b6d4;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.exp-card p {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  margin-bottom: 12px;
+}
+
+.exp-card ul {
+  padding-left: 18px;
+}
+
+.exp-card ul li {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  list-style: disc;
+}
